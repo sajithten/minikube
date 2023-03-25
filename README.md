@@ -53,7 +53,7 @@
 	minikube start --driver=none
 ---	
 ## Errors:
-   Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+ ![New Picture](https://user-images.githubusercontent.com/110303586/227715127-027c1fb5-8d97-4028-8eda-4518ec21604f.jpg)
 
     sudo setfacl --modify user:<user name or ID>:rw /var/run/docker.sock
 ---
