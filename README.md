@@ -15,6 +15,8 @@
 # Install docker & git:
 
      sudo yum install docker -y	
+     sudo groupadd docker
+     sudo usermod -aG docker $USER
 
 # Install cri-dockerd:
     git clone https://github.com/Mirantis/cri-dockerd.git
