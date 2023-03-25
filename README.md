@@ -51,7 +51,12 @@
 	yum install conntrack -y
 	export PATH=/usr/local/bin:$PATH
 	minikube start --driver=none
+---	
+## Errors:
+   Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
 
+    sudo setfacl --modify user:<user name or ID>:rw /var/run/docker.sock
+---
 # Other Versions:
 
 # kubectl (install)
