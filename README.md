@@ -59,6 +59,28 @@
 ---
 # Other Versions:
 
+# Install kubectl
+```
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+```
+# Install Docker 
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+# install minikube
+    curl -LO https://storage.googleapis.com/minikube/releases/v1.22.0/minikube-linux-amd64
+    sudo install minikube-linux-amd64 /usr/local/bin/minikube
+# Start VM
+    sudo apt-get install -y conntrack
+    sudo minikube start --vm-driver=none 
+    kubectl cluster-info //Check the Status
+    
+---
+
 # kubectl (install)
 	curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.20.4/2021-04-12/bin/linux/amd64/kubectl
 	chmod +x ./kubectl
