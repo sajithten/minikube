@@ -12,7 +12,7 @@
     kubectl version --short --client
 
 # Install docker & git:
-	```
+
 	sudo apt-get update -y
         sudo apt-get -y install \
         ca-certificates \
@@ -26,7 +26,7 @@
          $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
          sudo apt-get update -y 
          sudo apt install -y containerd.io docker-ce docker-ce-cli 
-	 ```
+	
 
 # Install cri-dockerd:
 	git clone https://github.com/Mirantis/cri-dockerd.git
