@@ -3,27 +3,28 @@
 # kubectl (latest version)
     
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-    chmod +x ./kubectl
-    mkdir -p $HOME/bin
-    cp ./kubectl $HOME/bin/kubectl
-    export PATH=$HOME/bin:$PATH
-    echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
-    source $HOME/.bashrc
-    kubectl version --short --client
+    curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+    echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    chmod +x kubectl
+    mkdir -p ~/.local/bin
+    mv ./kubectl ~/.local/bin/kubectl
+    kubectl version --client --output=yaml   
+  
 
 # Install docker & git:
 
-  sudo yum install docker -y	
+     sudo yum install docker -y	
 
 # Install cri-dockerd:
-	git clone https://github.com/Mirantis/cri-dockerd.git
+    git clone https://github.com/Mirantis/cri-dockerd.git
 
-	wget https://storage.googleapis.com/golang/getgo/installer_linux
+    wget https://storage.googleapis.com/golang/getgo/installer_linux
     chmod +x ./installer_linux
     ./installer_linux
     source ~/.bash_profile
 
-	cd cri-dockerd
+    cd cri-dockerd
     mkdir bin
     go build -o bin/cri-dockerd
     mkdir -p /usr/local/bin
